@@ -1,0 +1,122 @@
+site_name: Open Science Labs
+site_url: https://opensciencelabs.org
+
+docs_dir: pages
+site_dir: build
+
+theme:
+  name: null
+  custom_dir: 'theme/'
+  features:
+    - content.code.copy
+  palette:
+    primary: indigo
+
+extra_css:
+  - css/style.css
+  - css/index.css
+
+extra_javascript:
+  - js/bundle.js
+  - js/search.js
+  - js/index.json
+
+nav:
+  - Home: 'index.md'
+  - Blog: 'blog/index.md'
+  - Affiliations:
+    - index: affiliations/index.md
+    # - Member Affiliation: 'affiliations/membership/index.md'
+    - Project Affiliation:
+      - index: 'affiliations/projects/index.md'
+      - Affiliated Projects: 'affiliations/projects/projects.md'
+    - Partnership:
+      - index: 'affiliations/partnership/index.md'
+      - Partners: 'affiliations/partnership/partners/index.md'
+    - OpenHub: 'affiliations/open-hub/index.md'
+  - Programs:
+    - index: 'programs/index.md'
+    - Incubator: 'programs/incubator/index.md'
+    - Internship:
+      - index: 'programs/internship/index.md'
+      - Interns Guide: 'programs/internship/guides/interns/index.md'
+      - Mentors Guide: 'programs/internship/guides/mentors/index.md'
+      - "Cycle 2024-02": 'programs/internship/cycles/2024-02.md'
+      - "Cycle 2024-01 (CLOSED)": 'programs/internship/cycles/2024-01.md'
+      - "Cycle 2023-01 (CLOSED)": 'programs/internship/cycles/2023-01.md'
+      - "TEMPLATE: Projects Ideas": 'programs/internship/templates/projects-ideas.md'
+      - "TEMPLATE: Intern Project Proposal": 'programs/internship/templates/intern-proposal.md'
+    - GSoC:
+      - index: 'programs/gsoc/index.md'
+      - Contributor Guide: 'programs/gsoc/guides/contributor/index.md'
+      - "TEMPLATE: Contributor Project Proposal": 'programs/gsoc/templates/contributor-proposal.md'
+    # - Mentoring: 'programs/mentoring/index.md'
+    # note: let's keep these programs hidden for now
+    # - Packaging Support: 'programs/packaging-support/index.md'
+    # - Virtual-Labs: 'programs/virtual-labs/index.md'
+  - Events:
+    - index: events/index.md
+    - "OpenVerse'24": events/openverse24/index.md
+  - Guidelines:
+    - index: guidelines/index.md
+    - Articles: guidelines/articles/index.md
+    - DEI: guidelines/dei/index.md
+    # - DevOps/Discord: guidelines/devops/discord.md
+    # - Fund Raiser: guidelines/fund-raiser/index.md
+    - Mentoring: guidelines/mentoring/index.md
+  - About:
+    - index: 'about/index.md'
+    - About OSL: 'about/index.md'
+    - Our Formula: 'about/formula/index.md'
+    - Team: about/team/index.md
+    # Mentors: 'programs/mentoring/mentors.md'
+    # - Activities: about/archives/index.md
+    # note> faq is out-of-date
+    # - FAQ: faq/index.md
+    - Roadmap: about/roadmap/index.md
+    - Governance: about/governance/index.md
+    - CoC: about/coc/index.md
+    - CoC for Mentoring: about/coc-mentoring/index.md
+  - Donate: 'donate/index.md'
+
+markdown_extensions:
+  - toc:
+      permalink: " #"
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+plugins:
+  - blogging:
+      template: theme/blog-list.html
+      dirs:
+        - blog
+      features:
+        tags: {}
+
+  - rss:
+      abstract_chars_count: 160  # -1 for full content
+      abstract_delimiter: <!-- more -->
+      categories:
+        - tags
+      comments_path: "#__comments"
+      date_from_meta:
+        as_creation: "date"
+        as_update: false
+        datetime_format: "%Y-%m-%d"
+        default_timezone: Europe/Paris
+        default_time: "09:30"
+      enabled: true
+      feed_ttl: 1440
+      image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Feed-icon.svg/128px-Feed-icon.svg.png
+      length: 20
+      pretty_print: false
+      match_path: ".*"
+      url_parameters:
+        utm_source: "documentation"
+        utm_medium: "RSS"
+        utm_campaign: "feed-syndication"
